@@ -40,7 +40,6 @@ def getFunctionCode(filepath: str, language: str = "J"):
                 function.append(line)
                 functionCode.append(function)
                 print(f"function ends here: {line}")
-                print(i)
                 endIndexes.append(i)
                 function = []
             elif foundFunction and "}" in line:
@@ -57,13 +56,12 @@ def commentCode(filepath: str, functionCode: list[str]):
     with open(filepath, 'r') as file:
         content = file.read().splitlines(True)
         newCode = content[:startIndexes[0]] #all the code before the first function
-        print(newCode)
+        
         for i in range(len(functionCode)):
             if i == len(functionCode) -1:
-               newCode+=functionCode[i]+"".join(content[endIndexes[i]])
+               newCode+=[functionCode[i]]+ content[endIndexes[i]+1: ]
             else: 
-               newCode+= functionCode[i]+ "".join(content[endIndexes[i]: startIndexes[i+1]])
+               newCode+= [functionCode[i]]+ content[endIndexes[i]+1: startIndexes[i+1]]
         #adds the function code and then what was left until the start of the next function 
-        #it works but I'm not sure how
-    with open(filepath, 'w') as file:
+    with open('new_commented.java', 'w') as file:
         file.writelines(newCode)   

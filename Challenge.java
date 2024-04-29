@@ -4,7 +4,7 @@ public class Challenge {
 
     public static void shuffleArray(long[] arr){
         int L = 1; int R = arr.length/2;
-        int keep = -1; 
+        long keep = -1; 
         while (R>L){
             
             if(L%2 == 1){
@@ -14,7 +14,7 @@ public class Challenge {
                 L++;
                 R++;
             }else{
-                int x = arr[L];
+                long x = arr[L];
                 arr[L] = keep;
                 if(x!= -1) keep = x;
                 L++; 
@@ -22,7 +22,7 @@ public class Challenge {
         }
     }
 
-    public static void printArray([] arr){
+    public static void printArray(long[] arr){
         for(int i = 0; i<arr.length; i++){
             System.out.printf("%44d", arr[i]);
         }
