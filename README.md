@@ -1,5 +1,8 @@
 # Smart-Code-Commenter
-A wrapper around some gpt model that helps you in commenting your code 
+A wrapper around some ai model that helps you in commenting your java code 
+
+Approach:
+I thought it'll be more precise if I let it comment function by function rather than feeding the model the whole code 
 
 Issues:
 -It seems to repeat code 
@@ -7,4 +10,9 @@ Issues:
 -Commenting isn't always accurate
 
 To do:
--Enable you to pass in file paths through the command line 
+-Add support for other languages?
+I guess it could work with programming languages that are similar to java in syntaxs
+
+Set up
+- You'd need to create an account with Google Ai studio to get an api key
+- Then you can download the code and run 
